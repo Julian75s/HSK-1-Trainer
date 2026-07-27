@@ -1,0 +1,90 @@
+/* --- RESET ET LAYOUT GLOBAL --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pousse header en haut, main au centre, footer en bas */
+  align-items: center; /* Centre le conteneur principal */
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+}
+
+/* --- VRAIES BARRES FULL-WIDTH --- */
+.app-header {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Ombre discrète */
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.app-footer {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* --- CARTE CENTRALE --- */
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: calc(100% - 40px); /* Garantit une marge sur mobile */
+  margin: 20px 0; /* Espacement de sécurité avec les barres */
+}
+
+/* --- CONTENU DU JEU --- */
+.character {
+  font-size: 80px;
+  margin: 20px 0;
+  color: #333;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background-color: #357abd;
+}
+
+.score-info {
+  font-size: 14px;
+  color: #666;
+}
+
+.restart-btn {
+  margin-top: 20px;
+  background-color: #2ec4b6;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entraînement HSK1</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>🇨🇳 HSK 1 Trainer</h1>
+  </header>
+
+  <div class="container">
+    <div id="quiz-box">
+      <div class="score-info" id="progress">Question 1 / 20</div>
+      <div class="character" id="hanzi">人</div>
+      <div class="options-grid" id="options">
+        <!-- Les 4 boutons générés en JS -->
+      </div>
+    </div>
+
+    <div id="result-box" style="display: none;">
+      <h2>Session terminée ! 🎉</h2>
+      <p id="final-score">Ton score : 0 / 20</p>
+      <button class="btn restart-btn" id="restart-btn">Recommencer</button>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>Entraînement au vocabulaire du HSK1 — 20 questions aléatoires</p>
+  </footer>
+
+</body>
+</html>

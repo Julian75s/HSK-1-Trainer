@@ -1,182 +1,16 @@
-// La liste complète des 150 mots HSK1
-const hsk1Data = [
-  // Pronoms & Personnes
-  { hanzi: "我", answer: "wǒ (Je / Moi)" },
-  { hanzi: "你", answer: "nǐ (Tu / Toi)" },
-  { hanzi: "他", answer: "tā (Il / Lui)" },
-  { hanzi: "她", answer: "tā (Elle)" },
-  { hanzi: "我们", answer: "wǒmen (Nous)" },
-  { hanzi: "人", answer: "rén (Personne / Homme)" },
-  { hanzi: "先生", answer: "xiānsheng (Monsieur)" },
-  { hanzi: "小姐", answer: "xiǎojiě (Mademoiselle)" },
-  { hanzi: "老师", answer: "lǎoshī (Professeur)" },
-  { hanzi: "学生", answer: "xuésheng (Étudiant / Élève)" },
-  { hanzi: "同学", answer: "tóngxué (Camarade de classe)" },
-  { hanzi: "朋友", answer: "péngyou (Ami)" },
-  { hanzi: "医生", answer: "yīshēng (Médecin)" },
-  { hanzi: "爸爸", answer: "bàba (Papa)" },
-  { hanzi: "妈妈", answer: "māma (Maman)" },
-  { hanzi: "儿子", answer: "érzi (Fils)" },
-  { hanzi: "女儿", answer: "nǚ'ér (Fille)" },
-
-  // Chiffres & Quantités
-  { hanzi: "一", answer: "yī (Un)" },
-  { hanzi: "二", answer: "èr (Deux)" },
-  { hanzi: "三", answer: "sān (Trois)" },
-  { hanzi: "四", answer: "sì (Quatre)" },
-  { hanzi: "五", answer: "wǔ (Cinq)" },
-  { hanzi: "六", answer: "liù (Six)" },
-  { hanzi: "七", answer: "qī (Sept)" },
-  { hanzi: "八", answer: "bā (Huit)" },
-  { hanzi: "九", answer: "jiǔ (Neuf)" },
-  { hanzi: "十", answer: "shí (Dix)" },
-  { hanzi: "百", answer: "bǎi (Cent)" },
-  { hanzi: "个", answer: "gè (Spécificatif général)" },
-  { hanzi: "岁", answer: "suì (Âge / Ans)" },
-  { hanzi: "本", answer: "běn (Spécificatif pour livres)" },
-  { hanzi: "些", answer: "xiē (Quelques)" },
-  { hanzi: "块", answer: "kuài (Morceau / Yuan)" },
-
-  // Temps & Dates
-  { hanzi: "年", answer: "nián (Année)" },
-  { hanzi: "月", answer: "yuè (Mois / Lune)" },
-  { hanzi: "日", answer: "rì (Jour / Soleil)" },
-  { hanzi: "号", answer: "hào (Numéro / Jour du mois)" },
-  { hanzi: "星期", answer: "xīngqī (Semaine)" },
-  { hanzi: "点", answer: "diǎn (Heure / Point)" },
-  { hanzi: "分钟", answer: "fēnzhōng (Minute)" },
-  { hanzi: "现在", answer: "xiànzài (Maintenant)" },
-  { hanzi: "今天", answer: "jīntiān (Aujourd'hui)" },
-  { hanzi: "明天", answer: "míngtiān (Demain)" },
-  { hanzi: "昨天", answer: "zuótiān (Hier)" },
-  { hanzi: "上午", answer: "shàngwǔ (Matin)" },
-  { hanzi: "中午", answer: "zhōngwǔ (Midi)" },
-  { hanzi: "下午", answer: "xiàwǔ (Après-midi)" },
-  { hanzi: "时候", answer: "shíhou (Moment / Temps)" },
-
-  // Lieux & Orientations
-  { hanzi: "家", answer: "jiā (Maison / Famille)" },
-  { hanzi: "学校", answer: "xuéxiào (École)" },
-  { hanzi: "饭店", answer: "fàndiàn (Restaurant / Hôtel)" },
-  { hanzi: "商店", answer: "shāngdiàn (Magasin)" },
-  { hanzi: "医院", answer: "yīyuàn (Hôpital)" },
-  { hanzi: "火车站", answer: "huǒchēzhàn (Gare)" },
-  { hanzi: "中国", answer: "Zhōngguó (Chine)" },
-  { hanzi: "北京", answer: "Běijīng (Pékin)" },
-  { hanzi: "上", answer: "shàng (Sur / Au-dessus)" },
-  { hanzi: "下", answer: "xià (Sous / En bas)" },
-  { hanzi: "前面", answer: "qiánmiàn (Devant)" },
-  { hanzi: "后面", answer: "hòumiàn (Derrière)" },
-  { hanzi: "里面", answer: "lǐmiàn (À l'intérieur)" },
-
-  // Objets & Nourriture
-  { hanzi: "水", answer: "shuǐ (Eau)" },
-  { hanzi: "茶", answer: "chá (Thé)" },
-  { hanzi: "菜", answer: "cài (Plat / Légume)" },
-  { hanzi: "米饭", answer: "mǐfàn (Riz cuit)" },
-  { hanzi: "水果", answer: "shuǐguǒ (Fruit)" },
-  { hanzi: "苹果", answer: "píngguǒ (Pomme)" },
-  { hanzi: "猫", answer: "māo (Chat)" },
-  { hanzi: "狗", answer: "gǒu (Chien)" },
-  { hanzi: "书", answer: "shū (Livre)" },
-  { hanzi: "桌子", answer: "zhuōzi (Table)" },
-  { hanzi: "椅子", answer: "yǐzi (Chaise)" },
-  { hanzi: "杯子", answer: "bēizi (Tasse / Verre)" },
-  { hanzi: "钱", answer: "qián (Argent)" },
-  { hanzi: "飞机", answer: "fēijī (Avion)" },
-  { hanzi: "出租车", answer: "chūzūchē (Taxi)" },
-  { hanzi: "电视", answer: "diànshì (Télévision)" },
-  { hanzi: "电脑", answer: "diànnǎo (Ordinateur)" },
-  { hanzi: "电影", answer: "diànyǐng (Film)" },
-  { hanzi: "天气", answer: "tiānqì (Météo / Temps)" },
-  { hanzi: "衣服", answer: "yīfu (Vêtement)" },
-
-  // Verbes principaux
-  { hanzi: "是", answer: "shì (Être)" },
-  { hanzi: "有", answer: "yǒu (Avoir / Il y a)" },
-  { hanzi: "看", answer: "kàn (Regarder / Lire)" },
-  { hanzi: "听", answer: "tīng (Écouter)" },
-  { hanzi: "说话", answer: "shuōhuà (Parler)" },
-  { hanzi: "读", answer: "dú (Lire à haute voix)" },
-  { hanzi: "写", answer: "xiě (Écrire)" },
-  { hanzi: "看见", answer: "kànjiàn (Voir)" },
-  { hanzi: "叫", answer: "jiào (S'appeler)" },
-  { hanzi: "来", answer: "lái (Venir)" },
-  { hanzi: "去", answer: "qù (Aller)" },
-  { hanzi: "回", answer: "huí (Rentrér / Retourner)" },
-  { hanzi: "吃", answer: "chī (Manger)" },
-  { hanzi: "喝", answer: "hē (Boire)" },
-  { hanzi: "睡觉", answer: "shuìjiào (Dormir)" },
-  { hanzi: "打电话", answer: "dǎ diànhuà (Téléphoner)" },
-  { hanzi: "做", answer: "zuò (Faire)" },
-  { hanzi: "买", answer: "mǎi (Acheter)" },
-  { hanzi: "开", answer: "kāi (Ouvrir / Conduire)" },
-  { hanzi: "坐", answer: "zuò (S'asseoir / Prendre un transport)" },
-  { hanzi: "住", answer: "zhù (Habiter / Loger)" },
-  { hanzi: "学习", answer: "xuéxí (Étudier)" },
-  { hanzi: "工作", answer: "gōngzuò (Travailler)" },
-  { hanzi: "下雨", answer: "xià yǔ (Pleuvoir)" },
-  { hanzi: "爱", answer: "ài (Aimer)" },
-  { hanzi: "喜欢", answer: "xǐhuan (Aimer / Apprécier)" },
-  { hanzi: "想", answer: "xiǎng (Vouloir / Penser)" },
-  { hanzi: "认识", answer: "rènshi (Connaître)" },
-  { hanzi: "会", answer: "huì (Savoir faire)" },
-  { hanzi: "能", answer: "néng (Pouvoir)" },
-
-  // Adjectifs
-  { hanzi: "好", answer: "hǎo (Bon / Bien)" },
-  { hanzi: "大", answer: "dà (Grand)" },
-  { hanzi: "小", answer: "xiǎo (Petit)" },
-  { hanzi: "多", answer: "duō (Beaucoup)" },
-  { hanzi: "少", answer: "shǎo (Peu)" },
-  { hanzi: "冷", answer: "lěng (Froid)" },
-  { hanzi: "热", answer: "rè (Chaud)" },
-  { hanzi: "高兴", answer: "gāoxìng (Content / Heureux)" },
-  { hanzi: "漂亮", answer: "piàoliang (Joli / Beau)" },
-
-  // Mots interrogatifs & Grammaire
-  { hanzi: "什么", answer: "shénme (Quoi / Quel)" },
-  { hanzi: "谁", answer: "shéi (Qui)" },
-  { hanzi: "哪", answer: "nǎ (Lequel / Quel)" },
-  { hanzi: "哪儿", answer: "nǎr (Où)" },
-  { hanzi: "怎么", answer: "zěnme (Comment)" },
-  { hanzi: "怎么样", answer: "zěnmeyàng (Comment est-ce)" },
-  { hanzi: "多少", answer: "duōshao (Combien [+10])" },
-  { hanzi: "几", answer: "jǐ (Combien [-10])" },
-  { hanzi: "不", answer: "bù (Non / Ne pas)" },
-  { hanzi: "没", answer: "méi (Pas [pour le verbe avoir])" },
-  { hanzi: "很", answer: "hěn (Très)" },
-  { hanzi: "太", answer: "tài (Trop)" },
-  { hanzi: "都", answer: "dōu (Tous / Tout)" },
-  { hanzi: "和", answer: "hé (Et)" },
-  { hanzi: "在", answer: "zài (Être à / En train de)" },
-  { hanzi: "的", answer: "de (Particule de possession)" },
-  { hanzi: "了", answer: "le (Particule d'action accomplie)" },
-  { hanzi: "吗", answer: "ma (Particule interrogative)" },
-  { hanzi: "呢", answer: "ne (Et...? / Particule de relance)" },
-  { hanzi: "喂", answer: "wèi (Allô)" },
-  { hanzi: "谢谢", answer: "xièxie (Merci)" },
-  { hanzi: "不客气", answer: "bú kèqi (De rien)" },
-  { hanzi: "再见", answer: "zàijiàn (Au revoir)" },
-  { hanzi: "请", answer: "qǐng (S'il vous plaît / Inviter)" },
-  { hanzi: "对不起", answer: "duìbuqǐ (Pardon / Désolé)" },
-  { hanzi: "没关系", answer: "méi guānxi (Ce n'est pas grave)" }
-];
-
-// Variables de jeu
 let currentQuestions = [];
 let currentIndex = 0;
 let score = 0;
+let isAnswered = false; // Bloque les clics multiples pendant le délai
 
-// Utilitaire pour mélanger un tableau au hasard
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-// Préparer une nouvelle partie avec 20 mots au hasard
 function startNewGame() {
   currentIndex = 0;
   score = 0;
+  isAnswered = false;
   
   const shuffledAll = shuffle([...hsk1Data]);
   currentQuestions = shuffledAll.slice(0, 20);
@@ -187,8 +21,8 @@ function startNewGame() {
   loadQuestion();
 }
 
-// Charger la question courante
 function loadQuestion() {
+  isAnswered = false;
   const currentWord = currentQuestions[currentIndex];
   
   document.getElementById("hanzi").textContent = currentWord.hanzi;
@@ -196,7 +30,6 @@ function loadQuestion() {
 
   const otherWords = hsk1Data.filter(w => w.hanzi !== currentWord.hanzi);
   const falseChoices = shuffle(otherWords).slice(0, 3);
-  
   const choices = shuffle([currentWord, ...falseChoices]);
 
   const optionsContainer = document.getElementById("options");
@@ -206,34 +39,49 @@ function loadQuestion() {
     const button = document.createElement("button");
     button.className = "btn";
     button.textContent = choice.answer;
-    button.onclick = () => checkAnswer(choice === currentWord);
+    button.onclick = () => checkAnswer(choice === currentWord, choice, currentWord);
     optionsContainer.appendChild(button);
   });
 }
 
-// Vérifier la réponse cliquée
-function checkAnswer(isCorrect) {
-  if (isCorrect) {
-    score++;
-  }
+function checkAnswer(isCorrect, choice, currentWord) {
+  if (isAnswered) return; // Sécurité anti-spam
+  isAnswered = true;
 
+  const buttons = document.querySelectorAll("#options .btn");
+  
+  buttons.forEach(btn => {
+    btn.disabled = true;
+    
+    // Révèle la bonne réponse en vert
+    if (btn.textContent === currentWord.answer) {
+      btn.classList.add("correct");
+    }
+    // Si mauvaise réponse, passe le bouton cliqué en rouge
+    if (!isCorrect && btn.textContent === choice.answer) {
+      btn.classList.add("wrong");
+    }
+  });
+
+  if (isCorrect) score++;
   currentIndex++;
 
-  if (currentIndex < currentQuestions.length) {
-    loadQuestion();
-  } else {
-    showResults();
-  }
+  // Pause d'1 seconde pour mémoriser
+  setTimeout(() => {
+    if (currentIndex < currentQuestions.length) {
+      loadQuestion();
+    } else {
+      showResults();
+    }
+  }, 1000);
 }
 
-// Afficher l'écran de score final
 function showResults() {
   document.getElementById("quiz-box").style.display = "none";
   document.getElementById("result-box").style.display = "block";
   document.getElementById("final-score").textContent = `Ton score : ${score} / 20`;
 }
 
-// On s'assure que le DOM est complètement prêt avant d'attacher le clic et démarrer
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("restart-btn").addEventListener("click", startNewGame);
   startNewGame();

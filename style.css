@@ -6,16 +6,22 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Pousse header en haut, main au centre, footer en bas */
-  align-items: center; /* Centre le conteneur principal */
+  justify-content: space-between;
+  align-items: center;
   min-height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
 }
-a {
+
+a, 
+a:visited, 
+a:hover, 
+a:focus {
   text-decoration: none;
+  color: black;
 }
+
 /* --- VRAIES BARRES FULL-WIDTH --- */
 .app-header {
   width: 100%;
@@ -23,7 +29,7 @@ a {
   padding: 15px 20px;
   text-align: center;
   color: #333;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Ombre discrète */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .app-header h1 {
@@ -49,8 +55,8 @@ a {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 400px;
-  width: calc(100% - 40px); /* Garantit une marge sur mobile */
-  margin: 20px 0; /* Espacement de sécurité avec les barres */
+  width: calc(100% - 40px);
+  margin: 20px 0;
 }
 
 /* --- CONTENU DU JEU --- */
@@ -89,4 +95,15 @@ a {
 .restart-btn {
   margin-top: 20px;
   background-color: #2ec4b6;
+}
+
+/* --- ÉTATS COULEURS (DOIVENT ÊTRE À LA FIN DU CSS) --- */
+.btn.correct, .btn.correct:hover {
+  background-color: #2ecc71 !important;
+  color: white !important;
+}
+
+.btn.wrong, .btn.wrong:hover {
+  background-color: #e74c3c !important;
+  color: white !important;
 }
